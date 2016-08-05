@@ -1,0 +1,26 @@
+README FILE - CMPT 361 Assignment 1
+Matt Numsen - 301143052
+
+
+
+
+1.1 - INSTRUCTIONS
+Extract into test directory using the following command.
+
+tar -xzvf Assignment1_301143052.tar.gz
+
+Make using 'make' and execute by typing ./FruitTetris
+
+1.2 - IMPLEMENTATION DETAILS
+Implementations:
+Part 1 - Downward movement is achieved through the use of a timer, hard coded to a default of 1 tick per every 500ms.
+
+Part 2 - On the clock tick, the space below the current tile is checked. If no blocks are obstructing it, the block will move. If a block does obstruct it, the block will not stop and the background color of the grid will change. 
+
+Part 3 - Up arrow will rotate the tiles by 90 degrees counter clockwise. Left an right arrows will move the peice left and right, if possible. The down arrow will set the clock tick to a value of 100ms, making the peice move approximately 5 times as fast.
+
+Part 4 - When a tile is placed, a range of rows are checked to determine if they are full. If a full row is removed, it will recursively call itself on the same row, in order to make sure nothing is missed. 
+
+When a tile is placed, after row deletion has happened, the game will look for patterns of THREE OR MORE blocks in ANY "straight line" orientation, horizontal, vertical or diagonal. the assignment specifies that "blocks of three" be deleted. I looked at a block of length 4 to be two overlapping blocks of three, and that these should be deleted also. This potentially could allow up to 8 blocks to be deleted at once, though would be very difficult to acheive this scenario. 
+
+The game will terminate on the FIRST failure to place a block. Initially, I attempted to cycle through multiple positions to find a place to place a block at the top of the screen, however this introduced bugs that I could not reconcile. I have instead rolled back those attempts and am submitting a more stable version, with slightly less functionality. Given another day to work on the assignment, I may have been able to work something out, however I unfortunately have other priorities. Thank you. 
